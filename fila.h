@@ -20,4 +20,7 @@ void imprimirFila(FILA f);
 void destroiFila(FILA f);
 int filaVazia(FILA f); 
 
+void insereComeco(FILA f, int e);
+void insereFim(FILA f, int e);
+
 #endif 
