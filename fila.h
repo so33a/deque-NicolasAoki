@@ -23,4 +23,7 @@ int filaVazia(FILA f);
 void insereComeco(FILA f, int e);
 void insereFim(FILA f, int e);
 
+void removeComeco(FILA f);
+void removeFim(FILA f);
+
 #endif 
