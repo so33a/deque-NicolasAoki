@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "fila.h"
+#include "exe.h"
 
 int main () {
   FILA alunos = novaFila();
@@ -7,6 +7,16 @@ int main () {
   inserir(alunos, 8);
   inserir(alunos, 3);
   inserir(alunos, 10);
+ 
+ removeFim(alunos);
+
+  imprimirFila(alunos);
+  insereComeco(alunos, 2);
+  insereFim(alunos, 1);
+
+  removeComeco(alunos);
+
+  
 
   imprimirFila(alunos);
 
