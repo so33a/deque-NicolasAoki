@@ -1,6 +1,6 @@
-#include <stdio.h>
+e#include <stdio.h>
 #include <stdlib.h>
-#include "fila.h"
+#include "exe.h"
 
 
 link novoNo(int item, link next) {
@@ -63,37 +63,36 @@ void destroiFila(FILA f) {
 }
 
 void insereComeco(FILA f, int e){
-  link aux = novoNo(e,NULL);
-  if(f->maisNovo != NULL){
-     aux->next = f->maisNovo
-     f->maisNovo = aux;
-  }else{
-    f->maisNovo = aux;
-  }
+   if(f->maisAntigo == NULL){
+        f->maisAntigo = f->maisNovo = novoNo(e, NULL);
+   }else{
+
+	link aux = f->maisAntigo;
+ 	f->maisAntigo = novoNo(e,aux);
+	
+   }
 }
 void insereFim(FILA f, int e){
-  link aux = novoNo(e,NULL);
-  if(f->maisAntigo->next == NULL){
-    f->maisAntigo->next = f->maisAntigo = aux;
-  }
+   f->maisNovo->next = novoNo(e, NULL);
+   f->maisNovo = f->maisNovo->next;
 }
 void removeComeco(FILA f){
-  if(f->maisNovo == NULL)
-    printf("fila vazia");
-  link t = f->maisNovo;
-  f->maisNovo = f->maisNovo->next;
-  free(t);
-  
+   link aux = f->maisAntigo;
+   f->maisAntigo = f->maisAntigo->next;
+   free(aux);
 }
-void removeFim (FILA f){
-  if(f->maisAntigo == NULL)
-    printf("Fila Vazia");
-  link aux = f->maisNovo;
-  while(aux->next != NULL)
-    aux = aux->next;
- free(aux);
- 
+void removeFim(FILA f){
+   link aux = f->maisAntigo;
+   if(aux != f->maisNovo){
+	do{
+	    aux = aux->next;
+	}while(aux->next != f->maisNovo);
+      
+      f->maisNovo = aux;
+      free(aux->next);
+      f->maisNovo->next = NULL;
+      
+   }else{
+	printf("so tem 1 elemento");
+   }
 }
-
-
-
