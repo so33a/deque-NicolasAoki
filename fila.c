@@ -1,6 +1,6 @@
 e#include <stdio.h>
 #include <stdlib.h>
-#include "lista.h"
+#include "fila.h"
 
 
 link novoNo(int item, link next) {
