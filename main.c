@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "lista.h"
+#include "fila.h"
 
 int main () {
   FILA alunos = novaFila();
